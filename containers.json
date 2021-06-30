@@ -1,0 +1,9 @@
+[
+      {
+        "Description": "OnPrem vmdk",
+        "Format": "vmdk",
+        "UserBucket": {
+            "S3Bucket": "your-s3-bucket",
+            "S3Key": "OnPrem.vmdk"
+        }
+    }]
