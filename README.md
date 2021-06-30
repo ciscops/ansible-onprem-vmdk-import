@@ -38,7 +38,10 @@ This playbook automates the processes of exporting an OnPrem from VMware and Imp
     }]
 ```
 
-### Please note that each step in this process can take a considerable amount of time depending on your upload/download speeds, make sure your machine does not fall asleep.  
+### Please note that each step in this process can take a considerable amount of time depending on your upload/download speeds, make sure your machine does not fall asleep.  The AMI Import process will continue after the playbook finishes, you can check the status of the import with the following AWS CLI command:
+```
+aws ec2 describe-import-image-tasks
+```
 
 
 
