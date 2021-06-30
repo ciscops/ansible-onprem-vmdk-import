@@ -8,7 +8,7 @@ This playbook automates the processes of exporting an OnPrem from VMware and Imp
 - python >= 2.6
 - PyVmomi
 - You will need to install and configure the AWS CLI on the machine you will be running the playbook from, instructions can be found here:  https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
-- You will need set up your AWS Import IAM role and bucket, instructions can be found here:  https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html
+- You will need to set up your AWS Import IAM role and bucket, instructions can be found here:  https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html
 - You will need to power off your VMware VM prior to beginning the export process
 
 ## Update the variables at the top of the vm-import.yml with your VMware and S3 details
