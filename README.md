@@ -21,6 +21,7 @@ This playbook automates the processes of exporting an OnPrem from VMware and Imp
     s3_bucket: '<your-s3-bucket>'
     s3_key: '<your-s3-key>'
     s3_description: '<your-s3-description>'
+    export_directory_path: '<your-export-path>'
 ```
 *Make sure your S3 details match your bucket details and the containers.json details exactly*
 
