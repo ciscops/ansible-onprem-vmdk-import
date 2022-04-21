@@ -24,12 +24,12 @@
         name: '{{ vm_name }}'
         validate_certs: false
         export_with_images: true
-        export_dir: /Users/schkenne/Downloads
+        export_dir: <your-export-path>
       delegate_to: localhost
 
     - name: Copy vmdk to S3
       command: >
-          aws s3 cp /Users/schkenne/Downloads/'{{ vm_name }}'/'{{ vm_name }}-0'.vmdk s3://'{{ s3_bucket }}'/'{{ s3_key }}'
+          aws s3 cp <your-directory-path>'{{ vm_name }}'/'{{ vm_name }}-0'.vmdk s3://'{{ s3_bucket }}'/'{{ s3_key }}'
 
     - name: Import VMDK to AMI
       command: >
