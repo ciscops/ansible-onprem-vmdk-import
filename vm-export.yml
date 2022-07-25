@@ -1,0 +1,37 @@
+---
+# Export VMware ovf template
+
+- name: Export ovf
+  hosts: localhost
+  gather_facts: false
+  vars:
+    vcenter_hostname: '<your-vcenter-url>'
+    vcenter_username: '<your-vcenter-username>'
+    vcenter_password: '<your-vcenter-password>'
+    vm_name: '<your-vm-name>'
+    s3_bucket: '<your-s3-bucket>'
+    s3_key: '<your-s3-key>'
+    s3_description: '<your-s3-description>'
+    export_directory_path: '<your-export-path>'
+    
+    
+  
+  tasks:
+
+    - community.vmware.vmware_export_ovf:
+        hostname: '{{ vcenter_hostname }}'
+        username: '{{ vcenter_username }}'
+        password: '{{ vcenter_password }}'
+        name: '{{ vm_name }}'
+        validate_certs: false
+        export_with_images: true
+        export_dir: '{{ export_directory_path }}'
+      delegate_to: localhost
+
+    - name: Copy vmdk to S3
+      command: >
+          aws s3 cp '{{ export_directory_path }}'/'{{ vm_name }}'/'{{ vm_name }}-0'.vmdk s3://'{{ s3_bucket }}'/'{{ s3_key }}'
+
+    - name: Import VMDK to AMI
+      command: >
+          aws ec2 import-image --description '{{ s3_description }}' --license-type BYOL --disk-containers "file://containers.json"
