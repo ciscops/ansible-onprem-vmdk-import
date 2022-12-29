@@ -1,6 +1,6 @@
 # ansible-onprem-vmdk-import
 
-This playbook automates the processes of exporting an OnPrem from VMware and Importing it as an AWS AMI. 
+This playbook automates the processes of exporting an Smart Software Manager OnPrem server from VMware and importing it as an AWS AMI. 
 
 ## Prerequisites
 
